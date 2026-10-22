@@ -18,7 +18,7 @@ else has to change.
 
 | Path | What it is |
 | --- | --- |
-| `info.yaml` | Submission metadata: `tiles: 2x2`, `analog_pins: 2`, top module name |
+| `info.yaml` | Submission metadata: `tiles: 2x2`, `analog_pins: 1`, top module name |
 | `src/project.v` | Port-only top level (not synthesized for custom GDS) |
 | `def/tt_analog_2x2.def` | Official 2x2 tile template, 1.8V (VDPWR) - start the real layout from this |
 | `def/tt_analog_2x2_3v3.def` | Same, for 1.8V + 3.3V (VAPWR) designs - slightly narrower |

@@ -60,8 +60,8 @@ drive at the rising edge; the emulator samples on SCK's falling edge.
 
 ### ADC debug pins
 
-The ADC's observation outputs go straight to the pins; sample them at the rising edge of `clk` (`dbg_busy` and `eoc`
-are decoded from the ADC's step counter and can glitch between edges).
+The ADC's observation outputs go to the pins (`uo[7]` through a flop, one `clk` cycle late); sample them at the rising
+edge of `clk` (`dbg_busy` and `eoc` are decoded from the ADC's step counter and can glitch between edges).
 
 | Pin | Signal |
 |---|---|
@@ -69,7 +69,7 @@ are decoded from the ADC's step counter and can glitch between edges).
 | `uo[4]` | `sdo_valid`: the serial result bit on `uo[6]` is valid |
 | `uo[5]` | `eoc`: end of conversion (one cycle) |
 | `uo[6]` | `sdo`: serial result |
-| `uo[7]` | `dbg_busy` (conversion running) when `ui[3]` = 0, `dbg_outp` (the comparator's other rail, buffered) when `ui[3]` = 1 |
+| `uo[7]` | `dbg_busy` (conversion running) when `ui[3]` = 0, `dbg_outp` (the comparator's other rail, buffered) when `ui[3]` = 1, registered: one `clk` cycle late |
 | `ui[7]` | external START: 1 starts a conversion while the ADC is idle (OR'ed with the AXI START; through a 2-flop synchronizer) |
 
 A conversion can be run from the board alone: pulse `ui[7]`, then take `sdo` in each cycle where `sdo_valid` is 1

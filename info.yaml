@@ -42,7 +42,7 @@ pinout:
   uo[4]: "ADC sdo_valid"
   uo[5]: "ADC eoc"
   uo[6]: "ADC sdo"
-  uo[7]: "ADC dbg_busy / dbg_outp"
+  uo[7]: "ADC dbg_busy / dbg_outp (1 clk late)"
 
   # Bidirectional pins
   uio[0]: "PSRAM IO0"
